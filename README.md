@@ -147,7 +147,8 @@ Create <b>mortgage_sm</b> database
     Explain use case with example
 
 <b>Data Connect</b>
-    
+Step1:
+
     SOURCE: Create Connections to Apache Hive
     Host: 169.50.148.203
     Port: 10000
@@ -160,8 +161,11 @@ Create <b>mortgage_sm</b> database
     Database: BLUDB
     UserName: dash5845 
     PWD: XXX
-    
-    Cleanse data
+
+Step2:
+
+    Create Activity
+    Cleanse data  
     Move data to DashDB
 
 <b>For DSX Demo</b>
