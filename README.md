@@ -17,12 +17,12 @@
 
 
 <b>Create Databases</b>
-    Create <b>mortgage_sm</b> database
+Create <b>mortgage_sm</b> database
 
         DROP DATABASE IF EXISTS mortgage_sm CASCADE;
         Create DATABASE mortgage_sm ;
     
-    Create <b>mortgage_test</b> database
+Create <b>mortgage_test</b> database
 
         DROP DATABASE IF EXISTS mortgage_test CASCADE;
         Create DATABASE mortgage_test;
