@@ -148,7 +148,19 @@ Create <b>mortgage_sm</b> database
 
 <b>Data Connect</b>
     
-    Show Connections to Apache Hive
+    SOURCE: Create Connections to Apache Hive
+    Host: 169.50.148.203
+    Port: 10000
+    Database: mortgage_sm
+    UserName: bigsql 
+    Password: passw0rd
+    
+    TARGET: Create Connections to DASHDB
+    Hostname or IP Address: dashdb-entry-yp-dal09-10.services.dal.bluemix.net
+    Database: BLUDB
+    UserName: dash5845 
+    PWD: XXX
+    
     Cleanse data
     Move data to DashDB
 
