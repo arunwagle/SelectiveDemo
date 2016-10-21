@@ -93,7 +93,7 @@ Create <b>mortgage_sm</b> database
         --deploy-mode client \
         --class com.ibm.demos.mortgage.cfpb.hmda.LoadCSVDriver \
         --master yarn \
-        --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_1.csv -Dformat=PARQUET -Ddb=mortgage-sm' \
+        --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_1.csv -Dformat=PARQUET -Ddb=mortgage-sm.db' \
         /ibm/oozie-cfpb-mortgage-hmda/lib/ibm-demos-1.0-SNAPSHOT-jar-with-dependencies.jar
 
     Run Spark Application to generate PARQUET format
@@ -102,7 +102,7 @@ Create <b>mortgage_sm</b> database
             --deploy-mode client \
             --class com.ibm.demos.mortgage.cfpb.hmda.LoadCSVDriver \
             --master yarn \
-            --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_sm.csv -Dformat=ORC -Ddb=mortgage-test' \
+            --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_sm.csv -Dformat=ORC -Ddb=mortgage-test.db' \
             /ibm/oozie-cfpb-mortgage-hmda/lib/ibm-demos-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
