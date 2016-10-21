@@ -16,13 +16,13 @@
         Define bucketing if required
 
 
-<b>Create Databases</b>
+<b>Create Databases</b><br/>
 Create <b>mortgage_sm</b> database
 
         DROP DATABASE IF EXISTS mortgage_sm CASCADE;
         Create DATABASE mortgage_sm ;
     
-Create <b>mortgage_test</b> database
+<br/>Create <b>mortgage_test</b> database
 
         DROP DATABASE IF EXISTS mortgage_test CASCADE;
         Create DATABASE mortgage_test;
