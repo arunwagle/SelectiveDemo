@@ -17,11 +17,15 @@
 
 
 <b>Create Databases</b>
-- DROP DATABASE IF EXISTS mortgage_sm CASCADE;
-- Create DATABASE mortgage_sm ;
+    Create <b>mortgage_sm</b> database
 
-- DROP DATABASE IF EXISTS mortgage_test CASCADE;
-- Create DATABASE mortgage_test;
+        DROP DATABASE IF EXISTS mortgage_sm CASCADE;
+        Create DATABASE mortgage_sm ;
+    
+    Create <b>mortgage_test</b> database
+
+        DROP DATABASE IF EXISTS mortgage_test CASCADE;
+        Create DATABASE mortgage_test;
 
 
 <b>PARQUET TABLE</b>
@@ -83,28 +87,33 @@
       STORED AS ORC;
 
 <b>SPARK Commands</b>
-
-    /usr/iop/4.2.0.0/spark/bin/spark-submit \
-    --deploy-mode client \
-    --class com.ibm.demos.mortgage.cfpb.hmda.LoadCSVDriver \
-    --master yarn \
-    --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_1.csv -Dformat=PARQUET -D db=mortgage-sm' \
-    /ibm/oozie-cfpb-mortgage-hmda/lib/ibm-demos-1.0-SNAPSHOT-jar-with-dependencies.jar
-
-    /usr/iop/4.2.0.0/spark/bin/spark-submit \
+    Run Spark Application to generate PARQUET format
+    
+        /usr/iop/4.2.0.0/spark/bin/spark-submit \
         --deploy-mode client \
         --class com.ibm.demos.mortgage.cfpb.hmda.LoadCSVDriver \
         --master yarn \
-        --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_sm.csv -Dformat=ORC -D db=mortgage-test' \
+        --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_1.csv -Dformat=PARQUET -D db=mortgage-sm' \
         /ibm/oozie-cfpb-mortgage-hmda/lib/ibm-demos-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+    Run Spark Application to generate PARQUET format
+    
+        /usr/iop/4.2.0.0/spark/bin/spark-submit \
+            --deploy-mode client \
+            --class com.ibm.demos.mortgage.cfpb.hmda.LoadCSVDriver \
+            --master yarn \
+            --conf 'spark.driver.extraJavaOptions=-DS3N_URL=s3a://awbucket1/data/HMDA/Selective-Demo/Mortgage_Report_Data_2015_sm.csv -Dformat=ORC -D db=mortgage-test' \
+            /ibm/oozie-cfpb-mortgage-hmda/lib/ibm-demos-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
 <b>For BigSQL Demo purpose </b>
     <u>SYNC Data</u>
-    CALL SYSHADOOP.HCAT_SYNC_OBJECTS('mortgage_sm', 'MORTGAGE_REPORT_DATA_PARQUET', 'a', 'REPLACE', 'CONTINUE')
-    CALL SYSHADOOP.HCAT_SYNC_OBJECTS('mortgage_test', 'MORTGAGE_REPORT_DATA_PARQUET', 'a', 'REPLACE', 'CONTINUE')
+    
+        CALL SYSHADOOP.HCAT_SYNC_OBJECTS('mortgage_sm', 'MORTGAGE_REPORT_DATA_PARQUET', 'a', 'REPLACE', 'CONTINUE')
+        CALL SYSHADOOP.HCAT_SYNC_OBJECTS('mortgage_test', 'MORTGAGE_REPORT_DATA_PARQUET', 'a', 'REPLACE', 'CONTINUE')
 
 <b>Access Control</b>
+    
     Cannot be done on the demo env, so talk about it.
     Explain use case with example
 
