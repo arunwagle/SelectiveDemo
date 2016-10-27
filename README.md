@@ -149,7 +149,7 @@ Create <b>mortgage_sm</b> database
     Explain use case with example
 
 <b>Data Connect</b>
-Step1:
+</br>Step1:
 
     SOURCE: Create Connections to Apache Hive
     Host: 169.50.148.203
@@ -166,11 +166,16 @@ Step1:
 
 Step2:
 
-    Create Activity
+    Design Data flow
+        a. Edit name for the activity
+        b. Add SOURCE table, prepare data set, change column names, operation on columns, show change schema
     Cleanse data  
     Move data to DashDB
 
 <b>For DSX Demo</b>
 
 <b>For Watson Analytics Demo</b>
+
+    Data Connections
+    
 
